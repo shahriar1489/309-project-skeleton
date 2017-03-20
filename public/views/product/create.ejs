@@ -1,0 +1,29 @@
+<!DOCTYPE html5>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Hello!</title>
+    <!-- General META -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style 
+  </head>
+  <body>
+    <h2>Hello!</h2>
+    <button id="test">Show all articles</button>
+    <div id="list"></div>
+  </body>
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/ejs_production.js"></script>
+  <script>
+  $("#test").click(function(){
+    $.get("/api/articles", function(data, status){
+      var html = new EJS({url: 'views/article/list.ejs'}).render({articles:data});
+    $("#list").html(html);
+    });
+  });
+  </script>
+</html>
