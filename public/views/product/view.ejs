@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>New Product</title>
+    <title>On View Page</title>
     <!-- General META -->
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -40,7 +40,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" id = "submit">Submit</button>
+      <button type="submit" class="btn btn-default">Submit</button>
     </div>
   </div>
 </div>
@@ -48,48 +48,5 @@
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/vendor/ejs_production.js"></script>
   <script>
-    
-    var product = {
-      name: "",
-      decription:"",
-      price:null, 
-      quantity:null
-    };
-    
-    $("#name").change(function(){
-      product.name = $("#name").val(); 
-    });
-    
-    $("#description").change(function(){
-      product.description = $("#description").val(); 
-    });
-    
-    $("#price").change(function(){
-      product.price = $("#price").val(); 
-    });
-    
-    $("#quantity").change(function(){
-      product.quantity = $("#quantity").val(); 
-    });
-    
-  
-    
-    $("#submit").click(function(){
-  
-      $.ajax({
-        method:"POST",
-        url: '/api/products',
-        data: product
-      }).done(function(response){
-        
-        console.log(response);
-        
-      }).fail(function(response){
-        
-        console.log(response);
-        
-      }); 
-    });
-    
   </script>
 </html>

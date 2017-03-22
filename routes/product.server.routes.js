@@ -18,8 +18,13 @@ module.exports = function(app){
 
 //Routes to render views
   app.route('/products/new').get(products.new);
+  
+  // 9:13 added in class 
+  app.route('/products/all').get(products.all);
+  app.route('/products/edit/:productId').get(products.edit);
+  app.route('/products/view/:productId').get(products.view);    // 9:14 miss called this view 
+
 
 app.param('productId', products.productByID);
-
 
 }

@@ -25,6 +25,30 @@ exports.new = function(req, res) {
 	});
 };
 
+exports.all = function(req, res) {  // 9:00 change made in class 
+	res.render('./../public/views/product/list.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
+
+exports.view = function(req, res) {  // 9:00 change made in class 
+	res.render('./../public/views/product/view.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
+
+exports.edit = function(req, res) {  // 9:00 change made in class 
+	res.render('./../public/views/product/edit.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
+
 module.exports.create = function(req, res) {
   var product = new Product(req.body);
   product.user = req.user;
