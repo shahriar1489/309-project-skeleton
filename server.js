@@ -1,15 +1,16 @@
-'use strict';
+//'use strict';
 /**
  * Module dependencies.
  */
 var config = require('./config/config.js');
 var mongoose = require ('mongoose');
-var express = require ('express');
+var express = require ('express');  // 8:33 require - same as import in java 
 
 /**
  * Main application entry file.
  * Please note that the order of loading is important.
  */
+
 
 var uri = process.env.MONGOLAB_URI || config.db.uri;
 mongoose.Promise = require('q').Promise;
@@ -27,3 +28,16 @@ app.listen(app.get('port'), function(){
 })
 
 module.exports = app;
+
+
+/*
+var http = require('http');
+  var server = http.createServer(function(req, res){
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end("Hello World\n");
+  });
+  server.listen(process.env.PORT, process.env.IP, function(){
+    console.log('Server running at http://localhost:3000/');
+  });
+*/
