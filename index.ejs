@@ -1,4 +1,5 @@
 <!DOCTYPE html5>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Hello!</title>
@@ -12,17 +13,24 @@
   </head>
   <body>
     <h2>Hello!</h2>
-    <button id="test">Show all articles</button>
-    <div id="list"></div>
+    <button id ="test"> Show all the articles </button>
+    <div id = "list"></div>
   </body>
-  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <!-- <script src="lib/jquery/dist/jquery.min.js"></script> -->
+
+  <script
+			  src="http://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
   <script src="vendor/ejs_production.js"></script>
+
   <script>
-  $("#test").click(function(){
-    $.get("/api/articles", function(data, status){
-      var html = new EJS({url: 'views/article/list.ejs'}).render({articles:data});
-    $("#list").html(html);
+    $("#test").click(function(){
+      $.get("/api/articles", function(data, status){
+          var html = new  EJS({url: 'views/article/list.ejs'}).render({articles:data});
+          $("#list").html(html);
+      });
     });
-  });
   </script>
+
 </html>
